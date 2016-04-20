@@ -14,7 +14,7 @@ namespace SampleWebApi.Controllers
 
             return View();
 
-            // This needs to be figured out.
+            // This is a test.
             //return RedirectToRoute("HelpPage_Default");
         }
     }
