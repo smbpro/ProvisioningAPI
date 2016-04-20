@@ -559,14 +559,19 @@
             Gets or sets the Salesforce Account ID of the distributor.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.CloudLocatorInfo.ThreeLetterCountryCode">
+        <member name="P:SampleWebApi.Models.CloudLocatorInfo.CountryCode">
             <summary>
             The 3 letter ISO country code of the address on the account.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.CloudLocatorInfo.TwoLetterRegion">
+        <member name="P:SampleWebApi.Models.CloudLocatorInfo.RegionCode">
             <summary>
             The 2 letter province (for Canada) or state (for United States) code.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.CloudLocatorInfo.CloudOverride">
+            <summary>
+            If set, overrides the cloud locator logic and creates the VSC in the specified cloud.
             </summary>
         </member>
         <member name="T:SampleWebApi.Models.Partner">
