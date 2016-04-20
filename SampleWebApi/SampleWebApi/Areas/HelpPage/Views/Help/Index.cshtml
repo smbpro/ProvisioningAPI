@@ -1,0 +1,39 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using SampleWebApi.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "REST API Documentation";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <h2>Introduction</h2>
+            <p>
+                This REST API allows the creation and update of Managed Workplace accounts and users, as well as the ability to enable/disable various
+                services associated with the account.
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        @foreach (var group in apiGroups)
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+</div>
