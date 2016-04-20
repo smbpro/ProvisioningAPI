@@ -1,3 +1,3 @@
 # ProvisioningAPI
 
-This project contains the APIs to provision services from Salesforce.
+This project contains the APIs to provision various services from Salesforce.
