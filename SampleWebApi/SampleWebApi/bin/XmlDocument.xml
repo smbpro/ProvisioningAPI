@@ -481,97 +481,168 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:SampleWebApi.Controllers.ProvisioningController">
+        <member name="T:SampleWebApi.Controllers.PartnerController">
             <summary>
-            Service to create/update partners and partner users.
+            API to create and update partners.
             </summary>
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.CreatePartner(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.PartnerController.CreatePartner(SampleWebApi.Models.Partner)">
             <summary>
             Creates a Managed Workplace partner account.
             </summary>
-            <param name="partner"></param>       
+            <param name="partner"></param> 
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.UpdatePartner(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.PartnerController.UpdatePartner(SampleWebApi.Models.Partner)">
             <summary>
             Updates a Managed Workplace partner account.
             </summary>
-            <param name="partner"></param>
+            <param name="partner"></param>    
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.CreateUser(SampleWebApi.Models.User)">
+        <member name="T:SampleWebApi.Controllers.ServiceController">
             <summary>
-            Creates a Managed Workplace user.
+            API to activate and deactivate partner services.
             </summary>
-            <param name="user">Information about the user to create.</param>
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.UpdateUser(SampleWebApi.Models.User)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateRmmService(System.Int32,SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest)">
             <summary>
-            Updates a Managed Workplace user.
+            Activates the RMM service for a partner.
             </summary>
-            <param name="user">Information about the user to create.</param>
+            <param name="partnerid"></param>
+            <param name="rmmServiceActivationInfo"></param>              
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.ActivateRmmService(SampleWebApi.Models.Partner,SampleWebApi.Models.CloudLocatorInfo,SampleWebApi.Models.InstallInfo)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateBackupService(System.Int32)">
             <summary>
-            Activates the RMM service for the partner.
+            Activates the Backup service for a partner.
             </summary>
-            <param name="partner"></param>
-            <param name="cloudLocatorInfo"></param>
-            <param name="installInfo"></param>
+            <param name="partnerid"></param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.ActivateBackupService(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateSsoService(System.Int32)">
             <summary>
-            Activates the backup service for the partner.
+            Activates the SSO service for a partner.
             </summary>
-            <param name="partner"></param>
+            <param name="partnerid"></param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.ActivateSsoService(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateNocService(System.Int32)">
             <summary>
-            Activates the SSO service for the partner.
+            Activates the NOC service for a partner.
             </summary>
-            <param name="partner"></param>
+            <param name="partnerid"></param>       
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.ActivateNocService(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateHelpdeskService(System.Int32)">
             <summary>
-            Activates the NOC service for the partner.
+            Activates the Helpdesk service for a partner.
             </summary>
-            <param name="partner"></param>
+            <param name="partnerid"></param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.ActivateHelpdeskService(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.DeactivateService(System.Int32,SampleWebApi.Models.Services.Service)">
             <summary>
-            Activates the Helpdesk service for the partner.
+            Deactivates the specified service for a partner.
             </summary>
-            <param name="partner"></param>
+            <param name="partnerid">The ID of the partner.</param>
+            <param name="service">The type of the service.</param>       
         </member>
-        <member name="M:SampleWebApi.Controllers.ProvisioningController.DeactivateService(System.String,SampleWebApi.Models.Service)">
+        <member name="T:SampleWebApi.Controllers.UserController">
             <summary>
-            Deactivates the specified service for the partner.
+            API to create and update partner users.
             </summary>
-            <param name="accountID"></param>
-            <param name="service"></param>
         </member>
-        <member name="T:SampleWebApi.Models.CloudLocatorInfo">
+        <member name="M:SampleWebApi.Controllers.UserController.CreateUser(System.Int32,SampleWebApi.Models.Users.User)">
+            <summary>
+            Creates a user for a partner.
+            </summary>
+            <param name="partnerid">The ID of the partner.</param>
+            <param name="user">Information about the user to create.</param> 
+        </member>
+        <member name="M:SampleWebApi.Controllers.UserController.UpdateUser(System.Int32,SampleWebApi.Models.Users.User)">
+            <summary>
+            Updates a user for a partner.
+            </summary>
+            <param name="partnerid">The ID of the partner.</param>
+            <param name="user">Information about the user to update.</param>       
+        </member>
+        <member name="T:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo">
             <summary>
             Provides information to determine which cloud to create the partner in.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.CloudLocatorInfo.ParentAccountID">
+        <member name="P:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo.DistributorID">
             <summary>
-            Gets or sets the Salesforce Account ID of the distributor.
+            Gets or sets the Salesforce Account ID of the distributor (the parent account).
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.CloudLocatorInfo.CountryCode">
+        <member name="P:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo.CountryCode">
             <summary>
             The 3 letter ISO country code of the address on the account.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.CloudLocatorInfo.RegionCode">
+        <member name="P:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo.RegionCode">
             <summary>
             The 2 letter province (for Canada) or state (for United States) code.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.CloudLocatorInfo.CloudOverride">
+        <member name="P:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo.CloudOverride">
             <summary>
             If set, overrides the cloud locator logic and creates the VSC in the specified cloud.
+            </summary>
+        </member>
+        <member name="T:SampleWebApi.Models.Services.Rmm.InstallInfo">
+            <summary>
+            Provides information on the type of Managed Workplace instance to create.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Services.Rmm.InstallInfo.Deployment">
+            <summary>
+            Gets or sets the software deployment type.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Services.Rmm.InstallInfo.License">
+            <summary>
+            Gets or sets the license key status.
+            </summary>
+        </member>
+        <member name="T:SampleWebApi.Models.Services.Rmm.LicenseType">
+            <summary>
+            The license type.
+            </summary>
+        </member>
+        <member name="F:SampleWebApi.Models.Services.Rmm.LicenseType.Trial">
+            <summary>
+            No billing information on file, software will shut down after X days.
+            </summary>
+        </member>
+        <member name="F:SampleWebApi.Models.Services.Rmm.LicenseType.Paid">
+            <summary>
+            Customer billing information is on file. 
+            </summary>
+        </member>
+        <member name="T:SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest">
+            <summary>
+            Provides information about how to activate the RMM service for a partner.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest.CloudLocatorInfo">
+            <summary>
+            Provides information to help determine which cloud should be selected.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest.InstallInfo">
+            <summary>
+            Provdes licensing information.
+            </summary>
+        </member>
+        <member name="T:SampleWebApi.Models.Services.Rmm.SoftwareDeployment">
+            <summary>
+            The deployment model of the Managed Workplace installation. 
+            </summary>
+        </member>
+        <member name="F:SampleWebApi.Models.Services.Rmm.SoftwareDeployment.Cloud">
+            <summary>
+            Installed in a cloud environment hosted by AVG or a 3rd party distributor.
+            </summary>
+        </member>
+        <member name="F:SampleWebApi.Models.Services.Rmm.SoftwareDeployment.OnPremise">
+            <summary>
+            Installed on premise by the partner in their own data center.
             </summary>
         </member>
         <member name="T:SampleWebApi.Models.Partner">
@@ -579,14 +650,14 @@
             Represents a Managed Workplace partner account.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.Partner.AccountID">
+        <member name="P:SampleWebApi.Models.Partner.PartnerID">
             <summary>
             Gets or sets the Salesforce Account ID of the partner.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.Partner.PartnerName">
+        <member name="P:SampleWebApi.Models.Partner.CompanyName">
             <summary>
-            Gets or sets the name of the partner.
+            Gets or sets the name of the partner's company.
             </summary>
         </member>
         <member name="P:SampleWebApi.Models.Partner.EmailAddress">
@@ -594,37 +665,52 @@
             Gets or sets the email address of the primary contact on the account.
             </summary>
         </member>
-        <member name="T:SampleWebApi.Models.User">
+        <member name="P:SampleWebApi.Models.Partner.FirstName">
+            <summary>
+            Gets or sets the first name of the primary contact on the account.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Partner.LastName">
+            <summary>
+            Gets or sets the last name of the primary contact on the account.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Partner.Status">
+            <summary>
+            Gets or sets the status of the partner.
+            </summary>
+        </member>
+        <member name="T:SampleWebApi.Models.Users.User">
             <summary>
             Represent a Managed Workplace user.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.User.AccountID">
-            <summary>
-            Gets or sets the Salesforce Account ID of the partner.
-            </summary>
-        </member>
-        <member name="P:SampleWebApi.Models.User.Username">
+        <member name="P:SampleWebApi.Models.Users.User.Username">
             <summary>
             Gets or sets the login name of the user.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.User.FirstName">
+        <member name="P:SampleWebApi.Models.Users.User.FirstName">
             <summary>
             Gets or sets the first name of the user.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.User.LastName">
+        <member name="P:SampleWebApi.Models.Users.User.LastName">
             <summary>
             Gets or sets the last name of the user.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.User.EmailAddress">
+        <member name="P:SampleWebApi.Models.Users.User.EmailAddress">
             <summary>
             Gets or sets the email address of the user.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.User.SsoLoginID">
+        <member name="P:SampleWebApi.Models.Users.User.Status">
+            <summary>
+            Gets or sets the status of the user.
+            </summary>
+        </member>
+        <member name="P:SampleWebApi.Models.Users.User.SsoLoginID">
             <summary>
             Gets or sets the SSO login ID of the user.
             </summary>
