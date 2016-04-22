@@ -13,8 +13,7 @@ namespace SampleWebApi.Controllers
             ViewBag.Title = "Home Page";
 
             return View();
-
-            // This is a test.
+                       
             //return RedirectToRoute("HelpPage_Default");
         }
     }
