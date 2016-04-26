@@ -12,16 +12,18 @@ namespace SampleWebApi.Controllers
     /// <summary>
     /// API to activate and deactivate partner services.
     /// </summary>
+    [RoutePrefix("api/v1/Partner/{partnerid}/Service")]
     [AllowAnonymous]
     public class ServiceController : ApiController
     {
         /// <summary>
         /// Activates the RMM service for a partner.
         /// </summary>
-        /// <param name="partnerid"></param>
+        /// <param name="partnerid">The unique ID of the partner.</param>
         /// <param name="rmmServiceActivationInfo"></param>              
-        [Route("partner/{partnerid:int}/service/rmm/activate")]
-        public RmmServiceActivationResult ActivateRmmService(int partnerid, RmmServiceActivationRequest rmmServiceActivationInfo)
+        [Route("Rmm/Activate")]
+        [AcceptVerbs("POST")]
+        public RmmServiceActivationResult ActivateRmm(int partnerid, RmmServiceActivationRequest rmmServiceActivationInfo)
         {
             return null;
         }
@@ -29,46 +31,51 @@ namespace SampleWebApi.Controllers
         /// <summary>
         /// Activates the Backup service for a partner.
         /// </summary>
-        /// <param name="partnerid"></param>        
-        [Route("partner/{partnerid:int}/service/backup/activate")]
-        public void ActivateBackupService(int partnerid)
+        /// <param name="partnerid">The unique ID of the partner.</param>        
+        [Route("Backup/Activate")]
+        [AcceptVerbs("POST")]
+        public void ActivateBackup(int partnerid)
         {
         }
 
         /// <summary>
         /// Activates the SSO service for a partner.
         /// </summary>
-        /// <param name="partnerid"></param>        
-        [Route("partner/{partnerid:int}/service/sso/activate")]
-        public void ActivateSsoService(int partnerid)
+        /// <param name="partnerid">The unique ID of the partner.</param>        
+        [Route("Sso/Activate")]
+        [AcceptVerbs("POST")]
+        public void ActivateSso(int partnerid)
         {
         }
 
         /// <summary>
         /// Activates the NOC service for a partner.
         /// </summary>
-        /// <param name="partnerid"></param>       
-        [Route("partner/{partnerid:int}/service/noc/activate")]
-        public void ActivateNocService(int partnerid)
+        /// <param name="partnerid">The unique ID of the partner.</param>       
+        [Route("Noc/Activate")]
+        [AcceptVerbs("POST")]
+        public void ActivateNoc(int partnerid)
         {
         }
 
         /// <summary>
         /// Activates the Helpdesk service for a partner.
         /// </summary>
-        /// <param name="partnerid"></param>        
-        [Route("partner/{partnerid:int}/service/helpdesk/activate")]
-        public void ActivateHelpdeskService(int partnerid)
+        /// <param name="partnerid">The unique ID of the partner.</param>        
+        [Route("Helpdesk/Activate")]
+        [AcceptVerbs("POST")]
+        public void ActivateHelpdesk(int partnerid)
         {
         }
 
         /// <summary>
         /// Deactivates the specified service for a partner.
         /// </summary>
-        /// <param name="partnerid">The ID of the partner.</param>
-        /// <param name="service">The type of the service.</param>       
-        [Route("partner/{partnerid:int}/service/deactivate")]
-        public void DeactivateService(int partnerid, Service service)
+        /// <param name="partnerid">The unique ID of the partner.</param>
+        /// <param name="service">The type of service.</param>       
+        [Route("Deactivate")]
+        [AcceptVerbs("POST")]
+        public void Deactivate(int partnerid, Service service)
         {
         }
     }

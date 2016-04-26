@@ -13,7 +13,7 @@ namespace SampleWebApi.Models
         /// <summary>
         /// Gets or sets the Salesforce Account ID of the partner.
         /// </summary>
-        public string PartnerID { get; set; }       
+        public string AccountID { get; set; }       
 
         /// <summary>
         /// Gets or sets the name of the partner's company.

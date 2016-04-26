@@ -481,84 +481,85 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:SampleWebApi.Controllers.PartnerController">
+        <member name="T:SampleWebApi.Controllers.UserController">
             <summary>
-            API to create and update partners.
+            API to create and update partner users.
             </summary>
         </member>
-        <member name="M:SampleWebApi.Controllers.PartnerController.CreatePartner(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.UserController.Post(System.Int32,SampleWebApi.Models.Users.User)">
             <summary>
-            Creates a Managed Workplace partner account.
+            Creates a user for a partner.
             </summary>
-            <param name="partner"></param> 
+            <param name="partnerid">The unique ID of the partner.</param>
+            <param name="user">Information about the user.</param>
         </member>
-        <member name="M:SampleWebApi.Controllers.PartnerController.UpdatePartner(SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.UserController.Put(System.Int32,System.Int32,SampleWebApi.Models.Users.User)">
             <summary>
-            Updates a Managed Workplace partner account.
+            Updates a user for a partner.
             </summary>
-            <param name="partner"></param>    
+            <param name="partnerid">The unique ID of the partner.</param>
+            <param name="userid">The unique ID of the user.</param>
+            <param name="user">Information about the user.</param>
         </member>
         <member name="T:SampleWebApi.Controllers.ServiceController">
             <summary>
             API to activate and deactivate partner services.
             </summary>
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateRmmService(System.Int32,SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateRmm(System.Int32,SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest)">
             <summary>
             Activates the RMM service for a partner.
             </summary>
-            <param name="partnerid"></param>
+            <param name="partnerid">The unique ID of the partner.</param>
             <param name="rmmServiceActivationInfo"></param>              
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateBackupService(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateBackup(System.Int32)">
             <summary>
             Activates the Backup service for a partner.
             </summary>
-            <param name="partnerid"></param>        
+            <param name="partnerid">The unique ID of the partner.</param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateSsoService(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateSso(System.Int32)">
             <summary>
             Activates the SSO service for a partner.
             </summary>
-            <param name="partnerid"></param>        
+            <param name="partnerid">The unique ID of the partner.</param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateNocService(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateNoc(System.Int32)">
             <summary>
             Activates the NOC service for a partner.
             </summary>
-            <param name="partnerid"></param>       
+            <param name="partnerid">The unique ID of the partner.</param>       
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateHelpdeskService(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateHelpdesk(System.Int32)">
             <summary>
             Activates the Helpdesk service for a partner.
             </summary>
-            <param name="partnerid"></param>        
+            <param name="partnerid">The unique ID of the partner.</param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.DeactivateService(System.Int32,SampleWebApi.Models.Services.Service)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.Deactivate(System.Int32,SampleWebApi.Models.Services.Service)">
             <summary>
             Deactivates the specified service for a partner.
             </summary>
-            <param name="partnerid">The ID of the partner.</param>
-            <param name="service">The type of the service.</param>       
+            <param name="partnerid">The unique ID of the partner.</param>
+            <param name="service">The type of service.</param>       
         </member>
-        <member name="T:SampleWebApi.Controllers.UserController">
+        <member name="T:SampleWebApi.Controllers.PartnerController">
             <summary>
-            API to create and update partner users.
+            API to create and update partners.
             </summary>
         </member>
-        <member name="M:SampleWebApi.Controllers.UserController.CreateUser(System.Int32,SampleWebApi.Models.Users.User)">
+        <member name="M:SampleWebApi.Controllers.PartnerController.Post(SampleWebApi.Models.Partner)">
             <summary>
-            Creates a user for a partner.
+            Creates a Managed Workplace partner account.
             </summary>
-            <param name="partnerid">The ID of the partner.</param>
-            <param name="user">Information about the user to create.</param> 
+            <param name="partner"></param>
         </member>
-        <member name="M:SampleWebApi.Controllers.UserController.UpdateUser(System.Int32,SampleWebApi.Models.Users.User)">
+        <member name="M:SampleWebApi.Controllers.PartnerController.Put(System.Int32,SampleWebApi.Models.Partner)">
             <summary>
-            Updates a user for a partner.
-            </summary>
-            <param name="partnerid">The ID of the partner.</param>
-            <param name="user">Information about the user to update.</param>       
+            Updates a Managed Workplace partner account.
+            </summary>       
+            <param name="partner">The unique ID of the partner.</param>
         </member>
         <member name="T:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo">
             <summary>
@@ -650,7 +651,7 @@
             Represents a Managed Workplace partner account.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.Partner.PartnerID">
+        <member name="P:SampleWebApi.Models.Partner.AccountID">
             <summary>
             Gets or sets the Salesforce Account ID of the partner.
             </summary>
