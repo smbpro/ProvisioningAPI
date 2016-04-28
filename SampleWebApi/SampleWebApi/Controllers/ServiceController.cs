@@ -12,18 +12,18 @@ namespace SampleWebApi.Controllers
     /// <summary>
     /// API to activate and deactivate partner services.
     /// </summary>
-    [RoutePrefix("api/v1/Partner/{partnerid}/Service")]
+    [RoutePrefix("api/v1/Partner/{AccountId}/Service")]
     [AllowAnonymous]
     public class ServiceController : ApiController
     {
         /// <summary>
         /// Activates the RMM service for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>
         /// <param name="rmmServiceActivationInfo"></param>              
         [Route("Rmm/Activate")]
         [AcceptVerbs("POST")]
-        public RmmServiceActivationResult ActivateRmm(int partnerid, RmmServiceActivationRequest rmmServiceActivationInfo)
+        public RmmServiceActivationResult ActivateRmm(string AccountId, RmmServiceActivationRequest rmmServiceActivationInfo)
         {
             return null;
         }
@@ -31,51 +31,51 @@ namespace SampleWebApi.Controllers
         /// <summary>
         /// Activates the Backup service for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>        
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>        
         [Route("Backup/Activate")]
         [AcceptVerbs("POST")]
-        public void ActivateBackup(int partnerid)
+        public void ActivateBackup(string AccountId)
         {
         }
 
         /// <summary>
         /// Activates the SSO service for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>        
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>      
         [Route("Sso/Activate")]
         [AcceptVerbs("POST")]
-        public void ActivateSso(int partnerid)
+        public void ActivateSso(string AccountId)
         {
         }
 
         /// <summary>
         /// Activates the NOC service for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>       
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>       
         [Route("Noc/Activate")]
         [AcceptVerbs("POST")]
-        public void ActivateNoc(int partnerid)
+        public void ActivateNoc(string AccountId)
         {
         }
 
         /// <summary>
         /// Activates the Helpdesk service for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>        
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>        
         [Route("Helpdesk/Activate")]
         [AcceptVerbs("POST")]
-        public void ActivateHelpdesk(int partnerid)
+        public void ActivateHelpdesk(string AccountId)
         {
         }
 
         /// <summary>
         /// Deactivates the specified service for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>
         /// <param name="service">The type of service.</param>       
         [Route("Deactivate")]
         [AcceptVerbs("POST")]
-        public void Deactivate(int partnerid, Service service)
+        public void Deactivate(string AccountId, Service service)
         {
         }
     }

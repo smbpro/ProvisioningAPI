@@ -22,26 +22,32 @@ namespace SampleWebApi.Controllers
         public void Post(Partner partner)
         {
         }
-       
+
         /// <summary>
         /// Updates a Managed Workplace partner account.
-        /// </summary>       
-        /// <param name="partner">The unique ID of the partner.</param>
-        [Route("Partner/{partnerid}")]
-        public void Put(int partnerid, Partner partner)
+        /// </summary>
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>
+        /// <param name="partner"></param>
+        [Route("Partner/{AccountId}")]
+        public void Put(string AccountId, Partner partner)
         {
+        }
+
+        /// <summary>
+        /// Gets a Managed Workplace partner account.
+        /// </summary>
+        /// <param name="AccountId">The Salesforce AccountId of the partner.</param>
+        /// <returns></returns>
+        [Route("Partner/{AccountId}")]
+        public Partner Get(string AccountId)
+        {
+            return null;
         }
 
         //// GET: api/Partner
         //public IEnumerable<string> Get()
         //{
         //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET: api/Partner/5
-        //public string Get(int id)
-        //{
-        //    return "value";
         //}
 
         //// DELETE: api/Partner/5

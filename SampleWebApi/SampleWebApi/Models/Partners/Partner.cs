@@ -11,9 +11,9 @@ namespace SampleWebApi.Models
     public class Partner
     {
         /// <summary>
-        /// Gets or sets the Salesforce Account ID of the partner.
+        /// Gets or sets the VAR Code of the partner.
         /// </summary>
-        public string AccountID { get; set; }       
+        public string VarCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the partner's company.

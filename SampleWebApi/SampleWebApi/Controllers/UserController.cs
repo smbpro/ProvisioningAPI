@@ -11,28 +11,41 @@ namespace SampleWebApi.Controllers
     /// <summary>
     /// API to create and update partner users.
     /// </summary>
-    [RoutePrefix("api/v1/Partner/{partnerid}")]
+    [RoutePrefix("api/v1/Partner/{AccountId}")]
     public class UserController : ApiController
     {
         /// <summary>
         /// Creates a user for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>
-        /// <param name="user">Information about the user.</param>
+        /// <param name="AccountId"></param>
+        /// <param name="user"></param>
         [Route("User")]
-        public void Post(int partnerid, User user)
+        public void Post(string AccountId, User user)
         {
         }
+
 
         /// <summary>
         /// Updates a user for a partner.
         /// </summary>
-        /// <param name="partnerid">The unique ID of the partner.</param>
-        /// <param name="userid">The unique ID of the user.</param>
-        /// <param name="user">Information about the user.</param>
-        [Route("User/{userid}")]
-        public void Put(int partnerid, int userid, User user)
+        /// <param name="AccountId"></param>
+        /// <param name="UserId"></param>
+        /// <param name="user"></param>
+        [Route("User/{UserId}")]
+        public void Put(string AccountId, string UserId, User user)
         {
-        }       
+        }
+
+        /// <summary>
+        /// Gets a user for a partner.
+        /// </summary>
+        /// <param name="AccountId"></param>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        [Route("User/{UserId}")]
+        public User Get(string AccountId, string UserId)
+        {
+            return null;
+        }
     }
 }

@@ -486,62 +486,70 @@
             API to create and update partner users.
             </summary>
         </member>
-        <member name="M:SampleWebApi.Controllers.UserController.Post(System.Int32,SampleWebApi.Models.Users.User)">
+        <member name="M:SampleWebApi.Controllers.UserController.Post(System.String,SampleWebApi.Models.Users.User)">
             <summary>
             Creates a user for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>
-            <param name="user">Information about the user.</param>
+            <param name="AccountId"></param>
+            <param name="user"></param>
         </member>
-        <member name="M:SampleWebApi.Controllers.UserController.Put(System.Int32,System.Int32,SampleWebApi.Models.Users.User)">
+        <member name="M:SampleWebApi.Controllers.UserController.Put(System.String,System.String,SampleWebApi.Models.Users.User)">
             <summary>
             Updates a user for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>
-            <param name="userid">The unique ID of the user.</param>
-            <param name="user">Information about the user.</param>
+            <param name="AccountId"></param>
+            <param name="UserId"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:SampleWebApi.Controllers.UserController.Get(System.String,System.String)">
+            <summary>
+            Gets a user for a partner.
+            </summary>
+            <param name="AccountId"></param>
+            <param name="UserId"></param>
+            <returns></returns>
         </member>
         <member name="T:SampleWebApi.Controllers.ServiceController">
             <summary>
             API to activate and deactivate partner services.
             </summary>
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateRmm(System.Int32,SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateRmm(System.String,SampleWebApi.Models.Services.Rmm.RmmServiceActivationRequest)">
             <summary>
             Activates the RMM service for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>
             <param name="rmmServiceActivationInfo"></param>              
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateBackup(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateBackup(System.String)">
             <summary>
             Activates the Backup service for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>        
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateSso(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateSso(System.String)">
             <summary>
             Activates the SSO service for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>        
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>      
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateNoc(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateNoc(System.String)">
             <summary>
             Activates the NOC service for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>       
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>       
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateHelpdesk(System.Int32)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.ActivateHelpdesk(System.String)">
             <summary>
             Activates the Helpdesk service for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>        
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>        
         </member>
-        <member name="M:SampleWebApi.Controllers.ServiceController.Deactivate(System.Int32,SampleWebApi.Models.Services.Service)">
+        <member name="M:SampleWebApi.Controllers.ServiceController.Deactivate(System.String,SampleWebApi.Models.Services.Service)">
             <summary>
             Deactivates the specified service for a partner.
             </summary>
-            <param name="partnerid">The unique ID of the partner.</param>
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>
             <param name="service">The type of service.</param>       
         </member>
         <member name="T:SampleWebApi.Controllers.PartnerController">
@@ -555,11 +563,19 @@
             </summary>
             <param name="partner"></param>
         </member>
-        <member name="M:SampleWebApi.Controllers.PartnerController.Put(System.Int32,SampleWebApi.Models.Partner)">
+        <member name="M:SampleWebApi.Controllers.PartnerController.Put(System.String,SampleWebApi.Models.Partner)">
             <summary>
             Updates a Managed Workplace partner account.
-            </summary>       
-            <param name="partner">The unique ID of the partner.</param>
+            </summary>
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>
+            <param name="partner"></param>
+        </member>
+        <member name="M:SampleWebApi.Controllers.PartnerController.Get(System.String)">
+            <summary>
+            Gets a Managed Workplace partner account.
+            </summary>
+            <param name="AccountId">The Salesforce AccountId of the partner.</param>
+            <returns></returns>
         </member>
         <member name="T:SampleWebApi.Models.Services.Rmm.CloudLocatorInfo">
             <summary>
@@ -651,9 +667,9 @@
             Represents a Managed Workplace partner account.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.Partner.AccountID">
+        <member name="P:SampleWebApi.Models.Partner.VarCode">
             <summary>
-            Gets or sets the Salesforce Account ID of the partner.
+            Gets or sets the VAR Code of the partner.
             </summary>
         </member>
         <member name="P:SampleWebApi.Models.Partner.CompanyName">
@@ -711,7 +727,7 @@
             Gets or sets the status of the user.
             </summary>
         </member>
-        <member name="P:SampleWebApi.Models.Users.User.SsoLoginID">
+        <member name="P:SampleWebApi.Models.Users.User.FederatedID">
             <summary>
             Gets or sets the SSO login ID of the user.
             </summary>

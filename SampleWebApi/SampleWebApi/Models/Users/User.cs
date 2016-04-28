@@ -38,6 +38,6 @@ namespace SampleWebApi.Models.Users
         /// <summary>
         /// Gets or sets the SSO login ID of the user.
         /// </summary>
-        public string SsoLoginID { get; set; }
+        public string FederatedID { get; set; }
     }
 }
