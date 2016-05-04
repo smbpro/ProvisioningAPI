@@ -3,12 +3,13 @@ using System.Web.Http;
 using System.Web.Mvc;
 using SampleWebApi.Areas.HelpPage.ModelDescriptions;
 using SampleWebApi.Areas.HelpPage.Models;
+using SampleWebApi.Filters;
 
 namespace SampleWebApi.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.
-    /// </summary>
+    /// </summary>        
     public class HelpController : Controller
     {
         private const string ErrorViewName = "Error";
